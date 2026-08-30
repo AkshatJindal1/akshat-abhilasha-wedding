@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&family=Josefin+Sans:wght@300;400;500;600&family=Parisienne&family=Italianno&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme='midnight'] {
+  --color-bg: 27 21 18;
+  --color-bg-soft: 36 26 22;
+  --color-bg-deep: 14 11 12;
+  --color-surface: 246 238 221;
+  --color-surface-soft: 237 225 203;
+  --color-text: 243 233 220;
+  --color-text-muted: 201 184 168;
+  --color-ink: 43 29 20;
+  --color-accent: 201 162 39;
+  --color-accent-soft: 217 190 104;
+  --color-secondary: 122 36 54;
+  --color-secondary-deep: 92 27 41;
+  --color-event-day: 246 238 221;
+  --color-event-night: 14 11 12;
+  --color-event-sundowner: 61 27 51;
+  --color-input: 9 8 8;
+  --color-border: 69 60 55;
+}
+
+[data-theme='light'] {
+  --color-bg: 248 244 236;
+  --color-bg-soft: 239 232 220;
+  --color-bg-deep: 225 216 202;
+  --color-surface: 255 252 246;
+  --color-surface-soft: 246 239 228;
+  --color-text: 48 42 35;
+  --color-text-muted: 104 94 81;
+  --color-ink: 70 57 43;
+  --color-accent: 157 117 49;
+  --color-accent-soft: 190 151 76;
+  --color-secondary: 145 77 75;
+  --color-secondary-deep: 112 57 56;
+  --color-event-day: 255 252 246;
+  --color-event-night: 70 57 43;
+  --color-event-sundowner: 211 139 96;
+  --color-input: 255 252 246;
+  --color-border: 211 201 186;
+}
+
+[data-theme='sage'] {
+  --color-bg: 31 42 35;
+  --color-bg-soft: 42 56 47;
+  --color-bg-deep: 22 31 26;
+  --color-surface: 238 239 222;
+  --color-surface-soft: 221 226 205;
+  --color-text: 239 240 229;
+  --color-text-muted: 190 199 178;
+  --color-ink: 46 57 43;
+  --color-accent: 183 157 91;
+  --color-accent-soft: 211 188 126;
+  --color-secondary: 111 91 71;
+  --color-secondary-deep: 82 67 53;
+  --color-event-day: 238 239 222;
+  --color-event-night: 22 31 26;
+  --color-event-sundowner: 70 86 70;
+  --color-input: 18 26 21;
+  --color-border: 72 88 76;
+}
+
+[data-theme='teal'] {
+  --color-bg: 20 43 45;
+  --color-bg-soft: 27 58 61;
+  --color-bg-deep: 12 29 31;
+  --color-surface: 235 242 238;
+  --color-surface-soft: 214 231 225;
+  --color-text: 235 242 238;
+  --color-text-muted: 177 201 197;
+  --color-ink: 30 58 57;
+  --color-accent: 198 164 88;
+  --color-accent-soft: 224 195 122;
+  --color-secondary: 155 83 83;
+  --color-secondary-deep: 112 59 62;
+  --color-event-day: 235 242 238;
+  --color-event-night: 12 29 31;
+  --color-event-sundowner: 48 91 88;
+  --color-input: 10 25 27;
+  --color-border: 59 89 91;
+}
+
+[data-theme='terracotta'] {
+  --color-bg: 63 35 29;
+  --color-bg-soft: 81 43 34;
+  --color-bg-deep: 42 24 21;
+  --color-surface: 247 232 211;
+  --color-surface-soft: 236 211 184;
+  --color-text: 247 235 220;
+  --color-text-muted: 213 183 157;
+  --color-ink: 77 43 30;
+  --color-accent: 218 168 76;
+  --color-accent-soft: 235 198 118;
+  --color-secondary: 139 54 60;
+  --color-secondary-deep: 101 39 43;
+  --color-event-day: 247 232 211;
+  --color-event-night: 42 24 21;
+  --color-event-sundowner: 142 72 48;
+  --color-input: 28 17 15;
+  --color-border: 107 68 55;
+}
+
+[data-theme='rose'] {
+  --color-bg: 55 31 39;
+  --color-bg-soft: 72 39 50;
+  --color-bg-deep: 37 21 27;
+  --color-surface: 249 235 231;
+  --color-surface-soft: 239 215 211;
+  --color-text: 248 235 231;
+  --color-text-muted: 215 183 180;
+  --color-ink: 72 40 45;
+  --color-accent: 203 151 96;
+  --color-accent-soft: 227 185 123;
+  --color-secondary: 156 61 77;
+  --color-secondary-deep: 113 43 56;
+  --color-event-day: 249 235 231;
+  --color-event-night: 37 21 27;
+  --color-event-sundowner: 111 51 62;
+  --color-input: 26 14 19;
+  --color-border: 101 64 71;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: rgb(var(--color-bg));
+  transition: background-color 300ms ease;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: rgb(var(--color-bg));
+  color: rgb(var(--color-text));
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+.theme-swatch {
+  background: linear-gradient(135deg, var(--swatch-a), var(--swatch-b));
+}
+
+
+:root,
+[data-font='classic'] {
+  --font-heading: 'Cinzel', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', Arial, sans-serif;
+}
+
+[data-font='great-vibes'] {
+  --font-heading: 'Great Vibes', cursive;
+  --font-body: 'Montserrat', Arial, sans-serif;
+}
+
+[data-font='pinyon'] {
+  --font-heading: 'Pinyon Script', cursive;
+  --font-body: 'Josefin Sans', Arial, sans-serif;
+}
+
+[data-font='parisienne'] {
+  --font-heading: 'Parisienne', cursive;
+  --font-body: 'Montserrat', Arial, sans-serif;
+}
+
+[data-font='italianno'] {
+  --font-heading: 'Italianno', cursive;
+  --font-body: 'Josefin Sans', Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+.font-serif {
+  font-family: var(--font-heading) !important;
+}
+
+.font-sans {
+  font-family: var(--font-body) !important;
+}
