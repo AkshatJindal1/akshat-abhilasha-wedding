@@ -20,7 +20,7 @@ export default function Hero() {
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="relative z-10 text-center max-w-4xl mx-auto my-auto"
       >
-        <h1 className="font-serif text-5xl sm:text-7xl md:text-9xl tracking-tight ui-caps mb-4 text-cream font-light">
+        <h1 className="font-serif text-6xl sm:text-7xl md:text-9xl tracking-tight ui-caps mb-4 text-cream font-light">
           {weddingConfig.couple.groom} <span className="font-serif italic font-normal">&amp;</span> {weddingConfig.couple.bride}
         </h1>
         <div className="h-px w-24 bg-gold/50 mx-auto my-6" />

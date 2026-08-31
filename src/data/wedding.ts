@@ -10,6 +10,7 @@ export interface EventDetails {
   accent: 'turmeric' | 'wine' | 'magenta' | 'sunset';
   bgImage: string;
   emoji: string;
+  displayInRsvp: boolean;
 }
 
 export interface GalleryGroup {
@@ -52,7 +53,8 @@ export const weddingConfig = {
       mode: "day",
       accent: "turmeric",
       bgImage: "https://images.unsplash.com/photo-1771992224413-f171d19425cf?auto=format&fit=crop&q=85&w=1400",
-      emoji: "🌼"
+      emoji: "🌼",
+      displayInRsvp: true
     },
     {
       id: "sangeet",
@@ -65,7 +67,8 @@ export const weddingConfig = {
       mode: "night",
       accent: "magenta",
       bgImage: "https://images.unsplash.com/photo-1717011969223-0217a302ec6f?auto=format&fit=crop&q=85&w=1400",
-      emoji: "🎶"
+      emoji: "🎶",
+      displayInRsvp: true
     },
     {
       id: "baraat",
@@ -78,7 +81,8 @@ export const weddingConfig = {
       mode: "day",
       accent: "wine",
       bgImage: "https://images.unsplash.com/photo-1774437562471-4553f1107410?auto=format&fit=crop&q=85&w=1400",
-      emoji: "🥁"
+      emoji: "🥁",
+      displayInRsvp: false
     },
     {
       id: "wedding",
@@ -91,7 +95,8 @@ export const weddingConfig = {
       mode: "sundowner",
       accent: "sunset",
       bgImage: "https://images.unsplash.com/photo-1771929836785-065bb7635053?auto=format&fit=crop&q=85&w=1400",
-      emoji: "💍"
+      emoji: "💍",
+      displayInRsvp: true
     }
   ] as EventDetails[],
   galleryGroups: [

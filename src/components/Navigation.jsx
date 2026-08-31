@@ -14,18 +14,18 @@ export default function Navigation() {
       <button
         type="button"
         onClick={() => scrollTo('top')}
-        className="font-serif text-lg uppercase tracking-widest transition-colors hover:text-gold"
+        className="font-serif text-lg ui-caps tracking-widest transition-colors hover:text-gold"
       >
         {copy.nav.brand}
       </button>
       <div className="flex items-center gap-2 md:gap-4">
-        <div className="flex gap-3 font-sans text-[9px] uppercase tracking-[0.16em] md:gap-8 md:text-xs md:tracking-[0.2em]">
+        <div className="flex gap-3 font-sans text-[9px] ui-caps tracking-[0.16em] md:gap-8 md:text-xs md:tracking-[0.2em]">
           <button onClick={() => scrollTo('events')} className="transition-colors hover:text-gold">{copy.nav.links.events}</button>
           <button onClick={() => scrollTo('rsvp')} className="transition-colors hover:text-gold">{copy.nav.links.rsvp}</button>
           <button onClick={() => scrollTo('gallery')} className="transition-colors hover:text-gold">{copy.nav.links.gallery}</button>
         </div>
-        <ThemeSwitcher />
-        <FontSwitcher />
+        {/* <ThemeSwitcher />
+        <FontSwitcher /> */}
       </div>
     </nav>
   );

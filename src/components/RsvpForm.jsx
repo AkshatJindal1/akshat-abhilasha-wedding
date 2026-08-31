@@ -11,13 +11,12 @@ export default function RsvpForm() {
     attending: 'yes',
     guestCount: 1,
     eventsAttending: [],
-    dietaryPreferences: '',
     message: ''
   });
 
   const [status, setStatus] = useState({ loading: false, error: null, success: false });
 
-  const allEvents = weddingConfig.events;
+  const allEvents = weddingConfig.events.filter(evt => evt.displayInRsvp);
 
   const handleCheckbox = (title) => {
     setFormData(prev => {
@@ -141,6 +140,15 @@ export default function RsvpForm() {
                 <div>
                   <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.labels.eventsAttending}</label>
                   <div className="space-y-2">
+                    <label key="all" className="flex items-center gap-3 text-xs tracking-wider text-cream-muted cursor-pointer">
+                        <input 
+                          type="checkbox"
+                          checked={formData.eventsAttending.includes("All")}
+                          onChange={() => handleCheckbox("All")}
+                          className="accent-gold"
+                        />
+                        All Events
+                      </label>
                     {allEvents.map((evt) => (
                       <label key={evt.id} className="flex items-center gap-3 text-xs tracking-wider text-cream-muted cursor-pointer">
                         <input 
@@ -153,17 +161,6 @@ export default function RsvpForm() {
                       </label>
                     ))}
                   </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.labels.dietary}</label>
-                  <input 
-                    type="text" 
-                    placeholder={copy.rsvp.dietaryPlaceholder}
-                    value={formData.dietaryPreferences} 
-                    onChange={e => setFormData({...formData, dietaryPreferences: e.target.value})}
-                    className="w-full bg-theme-input border border-theme-border p-3 text-cream focus:outline-none focus:border-gold text-sm"
-                  />
                 </div>
               </>
             )}
