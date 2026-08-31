@@ -63,12 +63,12 @@ function EventBlock({ evt, index, total, reverse, registerRef }) {
           <div className="flex flex-wrap gap-x-10 gap-y-4">
             <div>
               <span className="mb-1 block text-[10px] ui-caps tracking-[0.25em] opacity-50">Time</span>
-              <span className={`font-serif text-lg ${accent.text}`}>{evt.time}</span>
+              <span className={`font-serif text-lg font-medium ${accent.text}`}>{evt.time}</span>
             </div>
             {evt.dressCode && (
               <div>
                 <span className="mb-1 block text-[10px] ui-caps tracking-[0.25em] opacity-50">Dress Code</span>
-                <span className={`font-serif text-lg italic ${accent.text}`}>{evt.dressCode}</span>
+                <span className={`font-serif text-lg italic font-medium ${accent.text}`}>{evt.dressCode}</span>
               </div>
             )}
           </div>

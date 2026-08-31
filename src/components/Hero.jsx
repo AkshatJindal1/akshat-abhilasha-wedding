@@ -23,8 +23,8 @@ export default function Hero() {
         <h1 className="font-serif text-6xl sm:text-7xl md:text-9xl tracking-tight ui-caps mb-4 text-cream font-light">
           {weddingConfig.couple.groom} <span className="font-serif italic font-normal">&amp;</span> {weddingConfig.couple.bride}
         </h1>
-        <div className="h-px w-24 bg-gold/50 mx-auto my-6" />
-        <p className="font-sans text-sm md:text-base tracking-[0.3em] text-cream-muted ui-caps font-light">
+        <div className="h-px w-16 bg-gold/60 mx-auto my-6" />
+        <p className="font-sans text-base md:text-xl tracking-[0.3em] text-cream-muted ui-caps font-medium">
           {weddingConfig.date} &bull; {weddingConfig.venue.city}
         </p>
       </motion.div>
