@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { submitRSVP } from '../services/rsvpService';
 import { weddingConfig } from '../data/wedding';
+import { copy } from '../data/copy';
 
 export default function RsvpForm() {
   const [formData, setFormData] = useState({
@@ -50,11 +51,11 @@ export default function RsvpForm() {
       <section id="rsvp" className="bg-ink px-6 py-28 text-cream transition-colors duration-300 md:px-12">
       <div className="max-w-xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="font-serif text-3xl sm:text-5xl uppercase tracking-widest mb-3">
-            Will You Join Us?
+          <h2 className="font-serif text-3xl sm:text-5xl ui-caps tracking-widest mb-3">
+            {copy.rsvp.heading}
           </h2>
-          <p className="font-sans text-xs tracking-[0.2em] text-cream-muted uppercase">
-            Kindly respond by October 15, 2026
+          <p className="font-sans text-xs tracking-[0.2em] text-cream-muted ui-caps">
+            {copy.rsvp.deadline}
           </p>
         </div>
 
@@ -78,7 +79,7 @@ export default function RsvpForm() {
             )}
 
             <div>
-              <label className="block text-xs uppercase tracking-widest text-cream-muted mb-2">Full Name *</label>
+              <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.labels.fullName}</label>
               <input 
                 type="text" 
                 required
@@ -89,7 +90,7 @@ export default function RsvpForm() {
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-widest text-cream-muted mb-2">Phone Number *</label>
+              <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.labels.phone}</label>
               <input 
                 type="tel" 
                 required
@@ -100,25 +101,25 @@ export default function RsvpForm() {
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-widest text-cream-muted mb-2">Attendance</label>
+              <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.labels.attendance}</label>
               <div className="grid grid-cols-2 gap-4">
                 <button
                   type="button"
                   onClick={() => setFormData({...formData, attending: 'yes'})}
-                  className={`p-3 text-xs tracking-widest uppercase border transition-colors ${
+                  className={`p-3 text-xs tracking-widest ui-caps border transition-colors ${
                     formData.attending === 'yes' ? 'border-gold/80 bg-ink-soft text-white' : 'border-theme-border text-cream-muted'
                   }`}
                 >
-                  Yes, I'll be there
+                  {copy.rsvp.attendanceOptions.yes}
                 </button>
                 <button
                   type="button"
                   onClick={() => setFormData({...formData, attending: 'no'})}
-                  className={`p-3 text-xs tracking-widest uppercase border transition-colors ${
+                  className={`p-3 text-xs tracking-widest ui-caps border transition-colors ${
                     formData.attending === 'no' ? 'border-gold/80 bg-ink-soft text-white' : 'border-theme-border text-cream-muted'
                   }`}
                 >
-                  Sorry, I can't make it
+                  {copy.rsvp.attendanceOptions.no}
                 </button>
               </div>
             </div>
@@ -126,7 +127,7 @@ export default function RsvpForm() {
             {formData.attending === 'yes' && (
               <>
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-cream-muted mb-2">Number of Guests</label>
+                  <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.labels.guestCount}</label>
                   <input 
                     type="number" 
                     min="1" 
@@ -138,7 +139,7 @@ export default function RsvpForm() {
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-cream-muted mb-2">Events Attending</label>
+                  <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.labels.eventsAttending}</label>
                   <div className="space-y-2">
                     {allEvents.map((evt) => (
                       <label key={evt.id} className="flex items-center gap-3 text-xs tracking-wider text-cream-muted cursor-pointer">
@@ -155,10 +156,10 @@ export default function RsvpForm() {
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-cream-muted mb-2">Dietary Preferences</label>
+                  <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.labels.dietary}</label>
                   <input 
                     type="text" 
-                    placeholder="e.g. Vegetarian, Jain, Vegan, Allergies"
+                    placeholder={copy.rsvp.dietaryPlaceholder}
                     value={formData.dietaryPreferences} 
                     onChange={e => setFormData({...formData, dietaryPreferences: e.target.value})}
                     className="w-full bg-theme-input border border-theme-border p-3 text-cream focus:outline-none focus:border-gold text-sm"
@@ -168,7 +169,7 @@ export default function RsvpForm() {
             )}
 
             <div>
-              <label className="block text-xs uppercase tracking-widest text-cream-muted mb-2">Message for the Couple</label>
+              <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.labels.message}</label>
               <textarea 
                 rows={3}
                 value={formData.message} 
@@ -180,9 +181,9 @@ export default function RsvpForm() {
             <button 
               type="submit" 
               disabled={status.loading}
-              className="w-full py-4 bg-cream text-ink font-sans text-xs uppercase tracking-[0.3em] font-semibold hover:bg-ivory-dim transition-colors disabled:opacity-50"
+              className="w-full py-4 bg-cream text-ink font-sans text-xs ui-caps tracking-[0.3em] font-semibold hover:bg-ivory-dim transition-colors disabled:opacity-50"
             >
-              {status.loading ? 'Submitting...' : 'Submit RSVP'}
+              {status.loading ? copy.rsvp.submit.loading : copy.rsvp.submit.idle}
             </button>
           </form>
         )}

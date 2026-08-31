@@ -20,11 +20,11 @@ export default function Hero() {
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="relative z-10 text-center max-w-4xl mx-auto my-auto"
       >
-        <h1 className="font-serif text-5xl sm:text-7xl md:text-9xl tracking-tight uppercase mb-4 text-cream font-light">
+        <h1 className="font-serif text-5xl sm:text-7xl md:text-9xl tracking-tight ui-caps mb-4 text-cream font-light">
           {weddingConfig.couple.groom} <span className="font-serif italic font-normal">&amp;</span> {weddingConfig.couple.bride}
         </h1>
         <div className="h-px w-24 bg-gold/50 mx-auto my-6" />
-        <p className="font-sans text-sm md:text-base tracking-[0.3em] text-cream-muted uppercase font-light">
+        <p className="font-sans text-sm md:text-base tracking-[0.3em] text-cream-muted ui-caps font-light">
           {weddingConfig.date} &bull; {weddingConfig.venue.city}
         </p>
       </motion.div>

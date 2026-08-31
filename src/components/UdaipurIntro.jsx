@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { weddingConfig } from '../data/wedding';
+import { copy } from '../data/copy';
 
 function MapPin() {
   return (
@@ -24,14 +25,14 @@ export default function UdaipurIntro() {
           transition={{ duration: 0.8 }}
           className="z-10 md:col-span-5"
         >
-          <span className="text-xs uppercase tracking-[0.3em] text-gold/80">The Destination</span>
-          <h2 className="my-4 font-serif text-4xl uppercase tracking-wider sm:text-6xl">Udaipur</h2>
-          <p className="mb-7 font-sans text-sm uppercase tracking-widest text-cream-muted">Where the celebration begins.</p>
+          <span className="text-xs ui-caps tracking-[0.3em] text-gold/80">{copy.destination.eyebrow}</span>
+          <h2 className="my-4 font-serif text-4xl ui-caps tracking-wider sm:text-6xl">Udaipur</h2>
+          <p className="mb-7 font-sans text-sm ui-caps tracking-widest text-cream-muted">{copy.destination.tagline}</p>
 
           <div className="flex items-center gap-4 border-t border-theme-border/60 pt-6">
             <MapPin />
             <div>
-              <h3 className="font-serif text-xl uppercase tracking-wider sm:text-2xl">{weddingConfig.venue.name}</h3>
+              <h3 className="font-serif text-xl ui-caps tracking-wider sm:text-2xl">{weddingConfig.venue.name}</h3>
               <span className="text-xs text-cream-muted">{weddingConfig.venue.city}, {weddingConfig.venue.state}</span>
             </div>
           </div>
@@ -40,9 +41,9 @@ export default function UdaipurIntro() {
             href={weddingConfig.venue.mapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-2 border-b border-gold/40 pb-1 font-sans text-xs uppercase tracking-[0.2em] text-gold transition-colors hover:border-gold"
+            className="mt-5 inline-flex items-center gap-2 border-b border-gold/40 pb-1 font-sans text-xs ui-caps tracking-[0.2em] text-gold transition-colors hover:border-gold"
           >
-            View location on Maps <span aria-hidden="true">↗</span>
+            {copy.destination.mapLink}<span aria-hidden="true">↗</span>
           </a>
         </motion.div>
 

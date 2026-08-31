@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { weddingConfig } from '../data/wedding';
+import { copy } from '../data/copy';
 
 const ACCENTS = {
   turmeric: { text: 'text-gold', chip: 'bg-gold/15 text-gold', rule: 'bg-gold', dot: 'bg-gold' },
@@ -54,19 +55,19 @@ function EventBlock({ evt, index, total, reverse, registerRef }) {
 
           <div className="mb-2 flex items-center gap-2">
             <span className="text-base leading-none" role="img" aria-label={evt.title}>{evt.emoji}</span>
-            <span className="block text-[11px] uppercase tracking-[0.25em] opacity-60">{evt.displayDate}</span>
+            <span className="block text-[11px] ui-caps tracking-[0.25em] opacity-60">{evt.displayDate}</span>
           </div>
           <h4 className="mb-4 font-serif text-4xl tracking-wide sm:text-5xl md:text-6xl">{evt.title}</h4>
           <p className="mb-8 max-w-sm font-sans text-sm leading-relaxed opacity-75 md:text-base">{evt.description}</p>
 
           <div className="flex flex-wrap gap-x-10 gap-y-4">
             <div>
-              <span className="mb-1 block text-[10px] uppercase tracking-[0.25em] opacity-50">Time</span>
+              <span className="mb-1 block text-[10px] ui-caps tracking-[0.25em] opacity-50">Time</span>
               <span className={`font-serif text-lg ${accent.text}`}>{evt.time}</span>
             </div>
             {evt.dressCode && (
               <div>
-                <span className="mb-1 block text-[10px] uppercase tracking-[0.25em] opacity-50">Dress Code</span>
+                <span className="mb-1 block text-[10px] ui-caps tracking-[0.25em] opacity-50">Dress Code</span>
                 <span className={`font-serif text-lg italic ${accent.text}`}>{evt.dressCode}</span>
               </div>
             )}
@@ -124,7 +125,7 @@ export default function EventStory() {
   return (
     <section id="events" className="relative w-full">
       <div className="bg-ink-deep px-6 py-14 text-center text-cream transition-colors duration-300 md:py-20">
-        <span className="mb-2 block text-xs uppercase tracking-[0.35em] text-gold/80">The Celebrations</span>
+        <span className="mb-2 block text-xs ui-caps tracking-[0.35em] text-gold/80">{copy.events.eyebrow}</span>
         <h3 className="font-serif text-3xl tracking-wide sm:text-5xl">The Days We've Been Waiting For</h3>
       </div>
 
@@ -134,7 +135,7 @@ export default function EventStory() {
           const isActive = evt.id === activeId;
           return (
             <a key={evt.id} href={`#event-${evt.id}`} className="group flex items-center justify-end gap-2" aria-label={evt.title}>
-              <span className={`font-sans text-[10px] uppercase tracking-[0.2em] transition-opacity ${isActive ? 'text-cream opacity-100' : 'text-cream opacity-0 group-hover:opacity-70'}`}>
+              <span className={`font-sans text-[10px] ui-caps tracking-[0.2em] transition-opacity ${isActive ? 'text-cream opacity-100' : 'text-cream opacity-0 group-hover:opacity-70'}`}>
                 {evt.title}
               </span>
               <span className={`rounded-full transition-all ${accent.dot} ${isActive ? 'h-3 w-3 opacity-100' : 'h-2 w-2 opacity-50'}`} />

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { copy } from '../data/copy';
 
 const THEMES = [
   { id: 'midnight', label: 'Midnight', a: '#1b1512', b: '#c9a227' },
@@ -44,13 +45,13 @@ export default function ThemeSwitcher() {
           className="theme-swatch h-3 w-3 rounded-full ring-1 ring-white/20"
           style={{ '--swatch-a': active.a, '--swatch-b': active.b }}
         />
-        <span className="hidden sm:inline">Theme</span>
+        <span className="hidden sm:inline">{copy.themeSwitcher.trigger}</span>
         <span aria-hidden="true" className={`transition-transform ${open ? 'rotate-180' : ''}`}>⌄</span>
       </button>
 
       {open && (
         <div className="absolute right-0 mt-2 w-52 rounded-xl border border-theme-border bg-ink/95 p-2 shadow-2xl backdrop-blur-md">
-          <p className="px-2 pb-2 pt-1 text-[9px] uppercase tracking-[0.25em] text-cream-muted">Try a colour direction</p>
+          <p className="px-2 pb-2 pt-1 text-[9px] ui-caps tracking-[0.25em] text-cream-muted">{copy.themeSwitcher.helper}</p>
           <div className="space-y-1">
             {THEMES.map(item => (
               <button

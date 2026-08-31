@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from 'react';
-
-const FONTS = [
-  { id: 'classic', label: 'Classic Editorial', heading: 'Cinzel', body: 'Plus Jakarta Sans' },
-  { id: 'great-vibes', label: 'Great Vibes', heading: 'Great Vibes', body: 'Montserrat' },
-  { id: 'pinyon', label: 'Pinyon Script', heading: 'Pinyon Script', body: 'Josefin Sans' },
-  { id: 'parisienne', label: 'Parisienne', heading: 'Parisienne', body: 'Montserrat' },
-  { id: 'italianno', label: 'Italianno', heading: 'Italianno', body: 'Josefin Sans' },
-];
+import { FONTS, DEFAULT_FONT_ID } from '../data/fonts';
+import { copy } from '../data/copy';
 
 const STORAGE_KEY = 'aa-wedding-font';
 
+function applyFont(fontId) {
+  const active = FONTS.find(item => item.id === fontId) || FONTS[0];
+  document.documentElement.dataset.font = active.id;
+  document.documentElement.dataset.fontCaps = active.caps ? 'true' : 'false';
+  return active;
+}
+
 export default function FontSwitcher() {
-  const [font, setFont] = useState('classic');
+  const [font, setFont] = useState(DEFAULT_FONT_ID);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const saved = window.localStorage.getItem(STORAGE_KEY);
-    const initial = FONTS.some(item => item.id === saved) ? saved : 'classic';
+    const initial = FONTS.some(item => item.id === saved) ? saved : DEFAULT_FONT_ID;
     setFont(initial);
-    document.documentElement.dataset.font = initial;
+    applyFont(initial);
   }, []);
 
   const selectFont = (nextFont) => {
     setFont(nextFont);
-    document.documentElement.dataset.font = nextFont;
+    applyFont(nextFont);
     window.localStorage.setItem(STORAGE_KEY, nextFont);
     setOpen(false);
   };
@@ -37,7 +38,7 @@ export default function FontSwitcher() {
         onClick={() => setOpen(value => !value)}
         aria-expanded={open}
         aria-label="Choose website fonts"
-        className="flex items-center gap-2 rounded-full border border-theme-border/60 bg-transparent px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-cream backdrop-blur-md transition-colors hover:bg-white/5"
+        className="flex items-center gap-2 rounded-full border border-theme-border/60 bg-transparent px-3 py-2 text-[10px] ui-caps tracking-[0.2em] text-cream backdrop-blur-md transition-colors hover:bg-white/5"
       >
         <span className="text-xs" aria-hidden="true">Aa</span>
         <span className="hidden sm:inline">{active.label}</span>
@@ -46,7 +47,7 @@ export default function FontSwitcher() {
 
       {open && (
         <div className="absolute right-0 mt-2 w-60 rounded-xl border border-theme-border bg-ink/90 p-2 shadow-2xl backdrop-blur-xl">
-          <p className="px-2 pb-2 pt-1 text-[9px] uppercase tracking-[0.25em] text-cream-muted">Try a type direction</p>
+          <p className="px-2 pb-2 pt-1 text-[9px] ui-caps tracking-[0.25em] text-cream-muted">{copy.fontSwitcher.helper}</p>
           <div className="space-y-1">
             {FONTS.map(item => (
               <button

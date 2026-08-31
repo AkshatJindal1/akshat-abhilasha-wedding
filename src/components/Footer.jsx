@@ -9,10 +9,10 @@ export default function Footer() {
           style={{ backgroundImage: `url(${weddingConfig.images.footer})` }}
         />
         <div className="relative z-10 space-y-4">
-          <h2 className="font-serif text-3xl sm:text-4xl uppercase tracking-widest text-cream">
+          <h2 className="font-serif text-3xl sm:text-4xl ui-caps tracking-widest text-cream">
             {weddingConfig.couple.title}
           </h2>
-          <p className="font-sans text-xs tracking-[0.25em] uppercase">
+          <p className="font-sans text-xs tracking-[0.25em] ui-caps">
             {weddingConfig.date} &bull; {weddingConfig.venue.name}, {weddingConfig.venue.city}
           </p>
         </div>
