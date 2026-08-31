@@ -9,7 +9,7 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center opacity-65 scale-105 transition-transform duration-10000"
         style={{ backgroundImage: `url(${weddingConfig.images.hero})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-ink/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-ink/50" />
 
       <div className="relative z-10 pt-12" />
 

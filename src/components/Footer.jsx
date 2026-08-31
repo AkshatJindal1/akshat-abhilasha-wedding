@@ -3,9 +3,9 @@ import { weddingConfig } from '../data/wedding';
 
 export default function Footer() {
   return (
-      <footer className="relative py-20 bg-ink-deep text-cream-muted text-center px-6 overflow-hidden">
+      <footer className="relative py-20 bg-black text-cream-muted text-center px-6 overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-10"
+          className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: `url(${weddingConfig.images.footer})` }}
         />
         <div className="relative z-10 space-y-4">
