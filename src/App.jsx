@@ -6,6 +6,7 @@ import EventStory from './components/EventStory';
 import CoupleGallery from './components/CoupleGallery';
 import RsvpForm from './components/RsvpForm';
 import Footer from './components/Footer';
+import { weddingConfig } from './data/wedding';
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
         <UdaipurIntro />
         <EventStory />
         <RsvpForm />
-        <CoupleGallery />
+        {weddingConfig.features.coupleGallery && <CoupleGallery />}
       </main>
       <Footer />
     </div>

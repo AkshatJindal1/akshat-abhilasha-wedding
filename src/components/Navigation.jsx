@@ -2,6 +2,7 @@ import React from 'react';
 import ThemeSwitcher from './ThemeSwitcher';
 import FontSwitcher from './FontSwitcher';
 import { copy } from '../data/copy';
+import { weddingConfig } from '../data/wedding';
 
 export default function Navigation() {
   const scrollTo = (id) => {
@@ -22,10 +23,12 @@ export default function Navigation() {
         <div className="flex gap-3 font-sans text-[9px] ui-caps tracking-[0.16em] md:gap-8 md:text-xs md:tracking-[0.2em]">
           <button onClick={() => scrollTo('events')} className="transition-colors hover:text-gold">{copy.nav.links.events}</button>
           <button onClick={() => scrollTo('rsvp')} className="transition-colors hover:text-gold">{copy.nav.links.rsvp}</button>
-          <button onClick={() => scrollTo('gallery')} className="transition-colors hover:text-gold">{copy.nav.links.gallery}</button>
+          {weddingConfig.features.coupleGallery && (
+            <button onClick={() => scrollTo('gallery')} className="transition-colors hover:text-gold">{copy.nav.links.gallery}</button>
+          )}
         </div>
-        {/* <ThemeSwitcher />
-        <FontSwitcher /> */}
+        {weddingConfig.features.themeSwitcher && <ThemeSwitcher />}
+        {weddingConfig.features.fontSwitcher && <FontSwitcher />}
       </div>
     </nav>
   );

@@ -32,6 +32,13 @@ export const weddingConfig = {
     state: "Rajasthan",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Yaan+Udaipur"
   },
+
+  features: {
+    coupleGallery: false, // flip to true once photos are finalized
+    themeSwitcher: false,
+    fontSwitcher: false
+  },
+
   images: {
     hero: "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&q=85&w=1920",
     udaipurIntro: [
@@ -52,7 +59,8 @@ export const weddingConfig = {
       description: "Turmeric, marigolds, and morning sun — the celebration begins in the courtyard.",
       mode: "day",
       accent: "turmeric",
-      bgImage: "https://images.unsplash.com/photo-1771992224413-f171d19425cf?auto=format&fit=crop&q=85&w=1400",
+      // bgImage: "https://images.unsplash.com/photo-1771992224413-f171d19425cf?auto=format&fit=crop&q=85&w=1400",
+      bgImage: "images/events/haldi-v2.jpeg",
       emoji: "🌼",
       displayInRsvp: true
     },
@@ -80,7 +88,8 @@ export const weddingConfig = {
       description: "Drums, dancing, and the groom's procession arriving in full colour.",
       mode: "day",
       accent: "wine",
-      bgImage: "https://images.unsplash.com/photo-1774437562471-4553f1107410?auto=format&fit=crop&q=85&w=1400",
+      // bgImage: "https://images.unsplash.com/photo-1774437562471-4553f1107410?auto=format&fit=crop&q=85&w=1400",
+      bgImage: "images/events/baraat.jpeg",
       emoji: "🥁",
       displayInRsvp: false
     },
@@ -94,7 +103,8 @@ export const weddingConfig = {
       description: "Vows exchanged as the sun sets over Udaipur — a sundowner ceremony.",
       mode: "sundowner",
       accent: "sunset",
-      bgImage: "https://images.unsplash.com/photo-1771929836785-065bb7635053?auto=format&fit=crop&q=85&w=1400",
+      // bgImage: "https://images.unsplash.com/photo-1771929836785-065bb7635053?auto=format&fit=crop&q=85&w=1400",
+      bgImage: "images/events/wedding.jpeg",
       emoji: "💍",
       displayInRsvp: true
     }
