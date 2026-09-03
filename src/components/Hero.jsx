@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative w-full h-screen overflow-hidden bg-ink text-cream flex flex-col justify-between p-8 md:p-16">
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-65 scale-105 transition-transform duration-10000"
+        className="absolute inset-0 bg-cover bg-center opacity-65 scale-105 blur-sm transition-transform duration-10000"
         style={{ backgroundImage: `url(${weddingConfig.images.hero})` }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-ink/50" />
