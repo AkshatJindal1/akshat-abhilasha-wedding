@@ -41,7 +41,7 @@ export const weddingConfig = {
 
   images: {
     // hero: "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&q=85&w=1920",
-    hero: "images/hero.jpg",
+    hero: "images/hero.webp",
     udaipurIntro: [
       "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&q=80&w=1000",
       "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&q=80&w=1000"
