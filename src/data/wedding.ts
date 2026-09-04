@@ -43,10 +43,13 @@ export const weddingConfig = {
     // hero: "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&q=85&w=1920",
     hero: "images/hero.webp",
     udaipurIntro: [
-      "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&q=80&w=1000"
+      "images/udaipur-1.jpeg",
+      "images/udaipur-2.jpeg",
+      // "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&q=80&w=1000",
+      // "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&q=80&w=1000"
     ],
-    footer: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&q=85&w=1920"
+    footer: "images/footer.jpeg"
+    // footer: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&q=85&w=1920"
   },
   // Flat, chronological list — each card carries its own date now.
   events: [
