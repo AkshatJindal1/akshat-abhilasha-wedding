@@ -165,8 +165,8 @@ export default function RsvpForm() {
                     type="number"
                     min="1"
                     max="10"
-                    value={formData.guestCount}
-                    onChange={e => setFormData({ ...formData, guestCount: parseInt(e.target.value) || 1 })}
+                    value={formData.guestCount} 
+                    onChange={e => setFormData({ ...formData, guestCount: parseInt(e.target.value) })}
                     className="w-full bg-theme-input border border-theme-border p-3 text-cream focus:outline-none focus:border-gold text-sm"
                   />
                 </div>
