@@ -29,6 +29,20 @@ export const copy = {
       dietary: "Dietary Preferences",
       message: "Message for the Couple",
     },
+    travel: {
+      toggle: "I've already booked my travel",
+      helper:
+        "Optional. Share your plans so we can help with pickups.",
+      labels: {
+        mode: "Mode of Transport",
+        arrivalDate: "Arrival Date",
+        arrivalTime: "Arrival Time",
+        details: "Flight / Train Number or Details",
+      },
+      modeOptions: ["Flight", "Train", "Car", "Bus", "Other"],
+      modePlaceholder: "Select",
+      detailsPlaceholder: "e.g. 6E 123 into Udaipur (UDR)",
+    },
     attendanceOptions: {
       yes: "Yes, I'll be there",
       no: "Sorry, I can't make it",
@@ -37,7 +51,7 @@ export const copy = {
     success: {
       heading: "Thank you!",
       subtext: "We can't wait to celebrate with you in Udaipur.",
-    }
+    },
   },
   themeSwitcher: { trigger: "Theme", helper: "Try a colour direction" },
   fontSwitcher: { helper: "Try a type direction" },

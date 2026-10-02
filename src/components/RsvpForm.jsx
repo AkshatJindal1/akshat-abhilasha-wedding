@@ -12,6 +12,11 @@ export default function RsvpForm() {
     attending: 'yes',
     guestCount: 1,
     eventsAttending: [],
+    travelBooked: false,
+    transportMode: '',
+    arrivalDate: '',
+    arrivalTime: '',
+    arrivalDetails: '',
     message: ''
   });
 
@@ -165,7 +170,7 @@ export default function RsvpForm() {
                     type="number"
                     min="1"
                     max="10"
-                    value={formData.guestCount} 
+                    value={formData.guestCount}
                     onChange={e => setFormData({ ...formData, guestCount: parseInt(e.target.value) })}
                     className="w-full bg-theme-input border border-theme-border p-3 text-cream focus:outline-none focus:border-gold text-sm"
                   />
@@ -195,6 +200,74 @@ export default function RsvpForm() {
                       </label>
                     ))}
                   </div>
+                </div>
+
+                {/* Optional travel details — only shown if the guest has already booked */}
+                <div className="space-y-4">
+                  <label className="flex items-center gap-3 text-xs tracking-wider text-cream-muted cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={formData.travelBooked}
+                      onChange={e => setFormData({ ...formData, travelBooked: e.target.checked })}
+                      className="accent-gold"
+                    />
+                    {copy.rsvp.travel.toggle}
+                  </label>
+                  <p className="text-[10px] tracking-wider text-cream-muted">{copy.rsvp.travel.helper}</p>
+
+                  {formData.travelBooked && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="space-y-6 border-l border-theme-border pl-4"
+                    >
+                      <div>
+                        <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.travel.labels.mode}</label>
+                        <select
+                          value={formData.transportMode}
+                          onChange={e => setFormData({ ...formData, transportMode: e.target.value })}
+                          className="w-full bg-theme-input border border-theme-border p-3 text-cream focus:outline-none focus:border-gold text-sm"
+                        >
+                          <option value="">{copy.rsvp.travel.modePlaceholder}</option>
+                          {copy.rsvp.travel.modeOptions.map(m => (
+                            <option key={m} value={m}>{m}</option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.travel.labels.arrivalDate}</label>
+                          <input
+                            type="date"
+                            value={formData.arrivalDate}
+                            onChange={e => setFormData({ ...formData, arrivalDate: e.target.value })}
+                            className="w-full bg-theme-input border border-theme-border p-3 text-cream focus:outline-none focus:border-gold text-sm"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.travel.labels.arrivalTime}</label>
+                          <input
+                            type="time"
+                            value={formData.arrivalTime}
+                            onChange={e => setFormData({ ...formData, arrivalTime: e.target.value })}
+                            className="w-full bg-theme-input border border-theme-border p-3 text-cream focus:outline-none focus:border-gold text-sm"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs ui-caps tracking-widest text-cream-muted mb-2">{copy.rsvp.travel.labels.details}</label>
+                        <input
+                          type="text"
+                          placeholder={copy.rsvp.travel.detailsPlaceholder}
+                          value={formData.arrivalDetails}
+                          onChange={e => setFormData({ ...formData, arrivalDetails: e.target.value })}
+                          className="w-full bg-theme-input border border-theme-border p-3 text-cream focus:outline-none focus:border-gold text-sm"
+                        />
+                      </div>
+                    </motion.div>
+                  )}
                 </div>
               </>
             )}

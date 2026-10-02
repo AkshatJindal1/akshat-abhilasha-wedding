@@ -27,6 +27,11 @@ function getRecaptchaToken(action) {
 export const submitRSVP = async (data) => {
   const recaptchaToken = await getRecaptchaToken(RECAPTCHA_ACTION);
 
+  // Travel details are optional: only sent when the guest is attending
+  // and ticked "I've already booked my travel". Otherwise blanked so
+  // stale values typed before unticking never reach the sheet.
+  const hasTravel = data.attending === 'yes' && !!data.travelBooked;
+
   const payload = {
     recaptchaToken,
     fullName: data.fullName.trim(),
@@ -35,6 +40,11 @@ export const submitRSVP = async (data) => {
     attending: data.attending,
     guestCount: data.attending === 'yes' ? data.guestCount : 0,
     eventsAttending: data.attending === 'yes' ? data.eventsAttending : [],
+    travelBooked: hasTravel,
+    transportMode: hasTravel ? (data.transportMode || '') : '',
+    arrivalDate: hasTravel ? (data.arrivalDate || '') : '',
+    arrivalTime: hasTravel ? (data.arrivalTime || '') : '',
+    arrivalDetails: hasTravel ? (data.arrivalDetails?.trim() || '') : '',
     message: data.message?.trim() || '',
   };
 
